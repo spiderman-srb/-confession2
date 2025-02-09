@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color:rosybrown;
+            background-image: url(moon.jpeg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #ff4a6b;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        button {
+            background-color: #d75b72;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1e42;
+        }
+
+        .poem-box {
+            margin-top: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #poemText {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey Smruti, This is for You! 🎶❤️</h1>
+        <p>Click the button to play a song I think you'll love!</p>
+        <button id="playBtn">Play Music 🎵</button>
+        <audio id="mySong">
+            <source src="drowning.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Poem Section -->
+        <div class="poem-box">
+            <h2>A Little Poem for You ❤️</h2>
+            <p id="poemText">Click below for a surprise!</p>
+            <button id="poemBtn">Show Me a Poem ✨</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("playBtn").addEventListener("click", function() {
+            let song = document.getElementById("mySong");
+            if (song.paused) {
+                song.play();
+                this.textContent = "Pause Music ⏸️";
+            } else {
+                song.pause();
+                this.textContent = "Play Music 🎵";
+            }
+        });
+
+        // Random Poem Generator
+        const poems = [
+            "You're the sunshine on my rainy day, \nThe melody in my favorite song, \nWith you, the world is brighter, \nAnd my heart sings all day long. ❤️",
+            "If I were a poet, I'd write you the stars, \nBut for now, I'll just say, \nYou're the best thing that happened to me, \nIn every possible way. ✨",
+            "Like a song that never fades, \nYour laughter fills my mind, \nWith you, every moment’s magic, \nYou're one of a kind. 💕",
+            "If love were a melody, \nYou'd be my sweetest tune, \nA song I'd play forever, \nUnderneath the glowing moon. 🎶"
+        ];
+
+        document.getElementById("poemBtn").addEventListener("click", function() {
+            let randomPoem = poems[Math.floor(Math.random() * poems.length)];
+            document.getElementById("poemText").textContent = randomPoem;
+        });
+    </script>
+</body>
+</html>
